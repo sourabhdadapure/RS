@@ -3,15 +3,20 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "install": "cd android && gradlew clean && cd ..; npm run configure-ios",
+    "re-install": "rm -rf node_modules && yarn install",
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "start-ios": "run-p load run-ios",
+    "start-ios": "react-native run-ios --simulator \"iPhone XR\"",
     "start-android": "react-native run-android",
     "test": "jest",
-    "test:watch": "npm run test -- --watch"
+    "test:watch": "npm run test -- --watch",
+    "flow": "flow",
+    "flow-stop": "flow stop"
   },
   "dependencies": {
+    "flow-bin": "0.86.0",
+    "prop-types": "^15.7.1",
     "react": "16.6.3",
+    "react-apollo": "^2.4.1",
     "react-native": "0.58.4",
     "react-native-elements": "^1.0.0",
     "react-navigation": "^3.2.1",
