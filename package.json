@@ -13,12 +13,14 @@
     "flow-stop": "flow stop"
   },
   "dependencies": {
+    "apollo-client": "^2.4.12",
     "flow-bin": "0.86.0",
     "prop-types": "^15.7.1",
     "react": "16.6.3",
     "react-apollo": "^2.4.1",
     "react-native": "0.58.4",
     "react-native-elements": "^1.0.0",
+    "react-native-gesture-handler": "^1.0.15",
     "react-navigation": "^3.2.1",
     "styled-components": "^4.1.3"
   },
