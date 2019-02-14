@@ -1,5 +1,4 @@
 import React from 'react'
-// @flow
 import styled from 'styled-components'
 
 const Wrapper = styled.View`
@@ -34,8 +33,8 @@ export default class ReservationItem extends React.Component {
       <Wrapper>
         <HotelName>{hotel}</HotelName>
         <DatesText>
-          {arrival}
-          {'\t'} {departure}
+          Arrival: {arrival}
+          {'\t'}Departure: {departure}
         </DatesText>
       </Wrapper>
     )

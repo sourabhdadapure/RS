@@ -1,5 +1,4 @@
 import React from 'react'
-// @flow
 import styled from 'styled-components'
 import { ScrollView } from 'react-native'
 import ReservationItem from './ReservationItem'
@@ -14,7 +13,7 @@ export default class ReservationList extends React.Component {
   render() {
     const { reservations } = this.props
     return (
-      <ScrollView contentContainerStyle={{ flex: 1 }}>
+      <ScrollView style={{ flex: 1 }} contentContainerStyle={{ flex: 1 }}>
         {reservations &&
           reservations.map(reservedItem => (
             <Wrapper key={reservations.indexOf(reservedItem)}>
