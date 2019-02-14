@@ -13,7 +13,7 @@ export default class ReservationList extends React.Component {
   render() {
     const { reservations } = this.props
     return (
-      <ScrollView style={{ flex: 1 }} contentContainerStyle={{ flex: 1 }}>
+      <ScrollView>
         {reservations &&
           reservations.map(reservedItem => (
             <Wrapper key={reservations.indexOf(reservedItem)}>
