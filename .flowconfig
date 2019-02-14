@@ -28,6 +28,7 @@ node_modules/react-native/flow-github/
 
 [options]
 emoji=true
+include_warnings=true
 
 esproposal.optional_chaining=enable
 esproposal.nullish_coalescing=enable
@@ -65,6 +66,13 @@ suppress_comment=\\(.\\|\n\\)*\\$FlowFixMe\\($\\|[^(]\\|(\\(<VERSION>\\)? *\\(si
 suppress_comment=\\(.\\|\n\\)*\\$FlowIssue\\((\\(<VERSION>\\)? *\\(site=[a-z,_]*react_native[a-z,_]*\\)?)\\)?:? #[0-9]+
 suppress_comment=\\(.\\|\n\\)*\\$FlowFixedInNextDeploy
 suppress_comment=\\(.\\|\n\\)*\\$FlowExpectedError
+
+[lints]
+all=warn
+untyped-type-import=error
+sketchy-null-bool=off
+
+[strict]
 
 [version]
 ^0.86.0

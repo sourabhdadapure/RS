@@ -1,4 +1,5 @@
 import React from 'react'
+// @flow
 import styled from 'styled-components'
 
 const Wrapper = styled.View`
@@ -22,12 +23,20 @@ const DatesText = styled.Text`
   color: turquoise;
 `
 
+const Space = styled.View`
+  height: 25;
+`
+
 export default class ReservationItem extends React.Component {
   render() {
+    const { hotel, arrival, departure } = this.props
     return (
       <Wrapper>
-        <HotelName>HotelName:</HotelName>
-        <DatesText>ArrivalDate:{'\t'} DepartureDate:</DatesText>
+        <HotelName>{hotel}</HotelName>
+        <DatesText>
+          {arrival}
+          {'\t'} {departure}
+        </DatesText>
       </Wrapper>
     )
   }
