@@ -42,7 +42,7 @@ const DeleteButtonWrapper = styled.TouchableOpacity``
 
 export default class ReservationItem extends React.Component {
   render() {
-    const { hotel, arrival, departure } = this.props
+    const { hotel, arrival, departure, onDelete } = this.props
     return (
       <Wrapper>
         <ImageHolder />
@@ -51,11 +51,7 @@ export default class ReservationItem extends React.Component {
           <DatesText>Arrival: {arrival}</DatesText>
           <DatesText>Departure: {departure}</DatesText>
         </TextWrapper>
-        <DeleteButtonWrapper
-          onPress={() => {
-            console.log('On Delete')
-          }}
-        >
+        <DeleteButtonWrapper onPress={onDelete}>
           <DeleteImage source={require('../../res/delete.png')} />
         </DeleteButtonWrapper>
       </Wrapper>
