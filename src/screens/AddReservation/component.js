@@ -1,5 +1,5 @@
 import React from 'react'
-import { DatePickerIOS } from 'react-native'
+import { Alert } from 'react-native'
 import styled from 'styled-components'
 import { Input, Button } from 'react-native-elements'
 import DatePicker from 'react-native-datepicker'
@@ -64,6 +64,8 @@ export default class AddReservationComponent extends React.Component {
 
   render() {
     const { name, arrivalDate, departureDate, hotelName } = this.state
+    const { onSuccess, onError } = this.props
+
     return (
       <Mutation mutation={createReservation}>
         {(createReservation, { data }) => (
@@ -146,6 +148,8 @@ export default class AddReservationComponent extends React.Component {
                     departureDate
                   }
                 })
+                  .then(onSuccess)
+                  .catch(onError)
               }
               title="Confirm"
             />

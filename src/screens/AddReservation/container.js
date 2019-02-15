@@ -1,6 +1,16 @@
 import React from 'react'
+import { Alert } from 'react-native'
 import AddReservationComponent from './component'
 
-const AddReservationContainer = () => <AddReservationComponent />
-
-export default AddReservationContainer
+export default class AddReservationContainer extends React.Component {
+  render() {
+    return (
+      <AddReservationComponent
+        onSuccess={() => {
+          this.props.navigation.goBack()
+          Alert.alert('Reservation Added Successfully!!!')
+        }}
+      />
+    )
+  }
+}
