@@ -1,12 +1,13 @@
 import React from 'react'
 import { createStackNavigator, createAppContainer } from 'react-navigation'
-import { Splash } from './screens'
+import { Splash, AddReservation } from './screens'
 import ApolloClient from 'apollo-boost'
 import { ApolloProvider } from 'react-apollo'
 
 const AppStack = createStackNavigator(
   {
-    Splash: { screen: Splash }
+    Splash: { screen: Splash },
+    AddReservation: { screen: AddReservation }
   },
   {
     headerMode: 'none',

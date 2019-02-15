@@ -28,7 +28,7 @@ const SplashComponent = graphql(getAllReservations)(props => {
     return (
       <View>
         <ReservationList reservations={reservations} />
-        <AddReservationButton />
+        <AddReservationButton onAddButton={onAddButton} />
       </View>
     )
   }
