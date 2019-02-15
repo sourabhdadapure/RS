@@ -13,7 +13,7 @@ const ImageWrapper = styled.Image`
 const ButtonWrapper = styled.TouchableOpacity``
 
 const AddReservationButton = ({ onAddButton }) => (
-  <ButtonWrapper onPress={() => onAddButton}>
+  <ButtonWrapper onPress={onAddButton}>
     <ImageWrapper source={require('../res/Add.png')} />
   </ButtonWrapper>
 )

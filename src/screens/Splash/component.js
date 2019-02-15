@@ -20,6 +20,7 @@ console.log('GRAPHQL', getAllReservations)
 
 const SplashComponent = graphql(getAllReservations)(props => {
   const { error, reservations } = props.data
+  const { onAddButton } = props
   console.log('GRAPHQL', props)
   if (error) {
     return <Text>{error}</Text>

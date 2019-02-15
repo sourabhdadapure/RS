@@ -10,7 +10,6 @@ const AppStack = createStackNavigator(
     AddReservation: { screen: AddReservation }
   },
   {
-    headerMode: 'none',
     cardStyle: { backgroundColor: '#001735' }
   }
 )
