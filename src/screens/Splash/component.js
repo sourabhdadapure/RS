@@ -1,10 +1,16 @@
 import React from 'react'
-import { Text, View, Alert } from 'react-native'
-import ReservationList from '../../components/ReservationList'
+import { Text, Alert, ScrollView } from 'react-native'
+import styled from 'styled-components'
+import ReservationItem from '../../components/ReservationList/ReservationItem'
 import AddReservationButton from '../../components/AddReservationButton'
-import { Query, graphql } from 'react-apollo'
+import { Query, graphql, Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
-// import graphql from 'graphql'
+
+const Wrapper = styled.View``
+
+const Space = styled.View`
+  height: 25;
+`
 
 const getAllReservations = gql`
   {
@@ -17,8 +23,8 @@ const getAllReservations = gql`
   }
 `
 
-const DeleteReservation = gql`
-  mutation delete($id: String!) {
+const deleteReservation = gql`
+  mutation deleteReservation($id: ID!) {
     deleteReservation(where: { id: $id }) {
       name
     }
@@ -27,33 +33,56 @@ const DeleteReservation = gql`
 
 console.log('GRAPHQL', getAllReservations)
 
-const SplashComponent = graphql(getAllReservations)(props => {
-  const { error, reservations } = props.data
-  const { onAddButton, onDelete } = props
-  console.log('GRAPHQL', props)
-  if (error) {
-    return <Text>{error}</Text>
-  }
-  if (reservations) {
-    return (
-      <View>
-        <ReservationList
-          onDelete={() => {
-            console.log('DELETED SUCCESSFULLY')
-            createReservation({
-              variables: {
-                id: reservations.id
-              }
-            }).then(() => Alert.alert('Reservation Deleted Successfully'))
-          }}
-          reservations={reservations}
-        />
-        <AddReservationButton onAddButton={onAddButton} />
-      </View>
-    )
-  }
+const SplashComponent = graphql(getAllReservations, deleteReservation)(
+  props => {
+    const { error, reservations } = props.data
+    const { onAddButton } = props
+    if (error) {
+      return <Text>{error}</Text>
+    }
+    if (reservations) {
+      return (
+        <Mutation mutation={deleteReservation}>
+          {deleteReservation => (
+            <Wrapper>
+              <ScrollView>
+                {reservations &&
+                  reservations.map(reservedItem => (
+                    <Wrapper key={reservations.indexOf(reservedItem)}>
+                      <ReservationItem
+                        onDelete={() => {
+                          deleteReservation({
+                            variables: {
+                              id: reservedItem.id
+                            }
+                          })
+                            .then(() =>
+                              Alert.alert(
+                                `Reservation ${
+                                  reservedItem.hotelName
+                                } Deleted Successfully`
+                              )
+                            )
+                            .catch(error => Alert.alert(error.toString()))
+                        }}
+                        hotel={reservedItem.hotelName}
+                        arrival={reservedItem.arrivalDate}
+                        departure={reservedItem.departureDate}
+                      />
+                      <Space />
+                    </Wrapper>
+                  ))}
+              </ScrollView>
 
-  return <Text>Loading...</Text>
-})
+              <AddReservationButton onAddButton={onAddButton} />
+            </Wrapper>
+          )}
+        </Mutation>
+      )
+    }
+
+    return <Text>Loading...</Text>
+  }
+)
 
 export default SplashComponent

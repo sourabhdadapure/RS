@@ -11,13 +11,15 @@ const Space = styled.View`
 
 export default class ReservationList extends React.Component {
   render() {
-    const { reservations } = this.props
+    const { reservations, onDelete } = this.props
     return (
       <ScrollView>
         {reservations &&
           reservations.map(reservedItem => (
             <Wrapper key={reservations.indexOf(reservedItem)}>
               <ReservationItem
+                onDelete={onDelete}
+                id={reservedItem.id}
                 hotel={reservedItem.hotelName}
                 arrival={reservedItem.arrivalDate}
                 departure={reservedItem.departureDate}
