@@ -2,7 +2,8 @@ import React from 'react'
 import { Text, Alert, ScrollView } from 'react-native'
 import styled from 'styled-components'
 import ReservationItem from '../../components/ReservationList/ReservationItem'
-import AddReservationButton from '../../components/AddReservationButton'
+// import AddReservationButton from '../../components/AddReservationButton'
+import { AddReservationButton, Loading } from '../../components'
 import { graphql, Mutation } from 'react-apollo'
 
 import {
@@ -66,7 +67,7 @@ const SplashComponent = graphql(getAllReservations, deleteReservation)(
       )
     }
 
-    return <Text>Loading...</Text>
+    return <Loading />
   }
 )
 
