@@ -4,31 +4,16 @@ import styled from 'styled-components'
 import ReservationItem from '../../components/ReservationList/ReservationItem'
 import AddReservationButton from '../../components/AddReservationButton'
 import { Query, graphql, Mutation } from 'react-apollo'
-import gql from 'graphql-tag'
+
+import {
+  getAllReservations,
+  deleteReservation
+} from '../../modules/Reservation'
 
 const Wrapper = styled.View``
 
 const Space = styled.View`
   height: 25;
-`
-
-const getAllReservations = gql`
-  {
-    reservations {
-      id
-      hotelName
-      arrivalDate
-      departureDate
-    }
-  }
-`
-
-const deleteReservation = gql`
-  mutation deleteReservation($id: ID!) {
-    deleteReservation(where: { id: $id }) {
-      name
-    }
-  }
 `
 
 console.log('GRAPHQL', getAllReservations)

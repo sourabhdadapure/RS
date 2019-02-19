@@ -6,6 +6,8 @@ import DatePicker from 'react-native-datepicker'
 import { Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
 
+import { createReservation } from '../../modules/Reservation'
+
 const FormWrapper = styled.View`
   flex: 1;
   padding-top: 50;
@@ -26,29 +28,6 @@ const DatesWrapper = styled.View`
   justify-content: space-between;
   flex-direction: row;
   align-items: center;
-`
-
-const createReservation = gql`
-  mutation createReservation(
-    $name: String!
-    $hotelName: String!
-    $arrivalDate: String!
-    $departureDate: String!
-  ) {
-    createReservation(
-      data: {
-        name: $name
-        hotelName: $hotelName
-        arrivalDate: $arrivalDate
-        departureDate: $departureDate
-      }
-    ) {
-      name
-      hotelName
-      arrivalDate
-      departureDate
-    }
-  }
 `
 
 export default class AddReservationComponent extends React.Component {
