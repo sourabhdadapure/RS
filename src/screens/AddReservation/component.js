@@ -1,10 +1,8 @@
 import React from 'react'
-import { Alert } from 'react-native'
 import styled from 'styled-components'
 import { Input, Button } from 'react-native-elements'
 import DatePicker from 'react-native-datepicker'
 import { Mutation } from 'react-apollo'
-import gql from 'graphql-tag'
 
 import { createReservation } from '../../modules/Reservation'
 

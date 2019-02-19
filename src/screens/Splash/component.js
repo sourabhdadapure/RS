@@ -3,7 +3,7 @@ import { Text, Alert, ScrollView } from 'react-native'
 import styled from 'styled-components'
 import ReservationItem from '../../components/ReservationList/ReservationItem'
 import AddReservationButton from '../../components/AddReservationButton'
-import { Query, graphql, Mutation } from 'react-apollo'
+import { graphql, Mutation } from 'react-apollo'
 
 import {
   getAllReservations,
