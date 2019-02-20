@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const ImageWrapper = styled.Image`
@@ -17,5 +18,9 @@ const AddReservationButton = ({ onAddButton }) => (
     <ImageWrapper source={require('../res/Add.png')} />
   </ButtonWrapper>
 )
+
+AddReservationButton.propTypes = {
+  onAddButton: PropTypes.func.isRequired
+}
 
 export default AddReservationButton

@@ -1,9 +1,13 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Text, Alert, ScrollView } from 'react-native'
 import styled from 'styled-components'
-import ReservationItem from '../../components/ReservationList/ReservationItem'
-// import AddReservationButton from '../../components/AddReservationButton'
-import { AddReservationButton, Loading } from '../../components'
+
+import {
+  AddReservationButton,
+  Loading,
+  ReservationItem
+} from '../../components'
 import { graphql, Mutation } from 'react-apollo'
 
 import {
@@ -31,7 +35,7 @@ const SplashComponent = graphql(getAllReservations, deleteReservation)(
         <Mutation mutation={deleteReservation}>
           {deleteReservation => (
             <Wrapper>
-              <ScrollView>
+              <ScrollView style={{ marginTop: 20 }}>
                 {reservations &&
                   reservations.map(reservedItem => (
                     <Wrapper key={reservations.indexOf(reservedItem)}>
@@ -70,5 +74,9 @@ const SplashComponent = graphql(getAllReservations, deleteReservation)(
     return <Loading />
   }
 )
+
+SplashComponent.propTypes = {
+  onAddButton: PropTypes.func.isRequired
+}
 
 export default SplashComponent

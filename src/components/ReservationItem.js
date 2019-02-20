@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const Wrapper = styled.View`
@@ -41,6 +42,13 @@ const DeleteImage = styled.Image`
 const DeleteButtonWrapper = styled.TouchableOpacity``
 
 export default class ReservationItem extends React.Component {
+  static propTypes = {
+    hotel: PropTypes.string.isRequired,
+    arrival: PropTypes.string.isRequired,
+    departure: PropTypes.string.isRequired,
+    onDelete: PropTypes.func.isRequired
+  }
+
   render() {
     const { hotel, arrival, departure, onDelete } = this.props
     return (
@@ -52,7 +60,7 @@ export default class ReservationItem extends React.Component {
           <DatesText>Departure: {departure}</DatesText>
         </TextWrapper>
         <DeleteButtonWrapper onPress={onDelete}>
-          <DeleteImage source={require('../../res/delete.png')} />
+          <DeleteImage source={require('../res/delete.png')} />
         </DeleteButtonWrapper>
       </Wrapper>
     )

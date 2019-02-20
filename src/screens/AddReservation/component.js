@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Input, Button } from 'react-native-elements'
 import DatePicker from 'react-native-datepicker'
@@ -29,6 +30,11 @@ const DatesWrapper = styled.View`
 `
 
 export default class AddReservationComponent extends React.Component {
+  static propTypes = {
+    onSuccess: PropTypes.func.isRequired,
+    onError: PropTypes.func.isRequired
+  }
+
   constructor(props) {
     super(props)
     this.state = {
