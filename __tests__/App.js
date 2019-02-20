@@ -17,7 +17,6 @@ import {
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer'
-import { graphql } from 'react-apollo'
 import SplashComponent from '../src/screens/Splash/component'
 import { Loading } from '../src/components'
 
@@ -33,11 +32,3 @@ test('renders correctly', () => {
   const splash = renderer.create(<SplashComponent />).toJSON()
   expect(splash).toMatchSnapshot()
 })
-
-const component = renderer.create(
-  <MockedProvider mocks={[createReservation]} />
-)
-
-const getAllReservationsComponent = component.toJSON()
-
-expect(getAllReservationsComponent).toContain('All reservations')

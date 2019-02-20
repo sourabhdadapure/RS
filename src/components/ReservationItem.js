@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const Wrapper = styled.View`
-  border-radius: 15;
-  background-color: #0e2b54;
+  border-radius: 18;
+  background-color: rgba(34, 43, 84, 0.9);
   margin-horizontal: 5%;
   align-items: center;
   padding-vertical: 30;
