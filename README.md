@@ -3,9 +3,9 @@
 
 <H1>Srcreenshots</H1>
 
-<img src="screenshots/Simulator Screen Shot - iPhone XR - 2019-02-20 at 01.40.30.png" width=500/>
+<img src="screenShots/Simulator Screen Shot - iPhone XR - 2019-02-20 at 01.40.30.png" width=500/>
 
-<img src="screenshots/Simulator Screen Shot - iPhone XR - 2019-02-20 at 01.40.31.png" width=500/>
+<img src="screenShots/Simulator Screen Shot - iPhone XR - 2019-02-20 at 01.40.31.png" width=500/>
 
 <img src="screenShots/Simulator Screen Shot - iPhone XR - 2019-02-20 at 02.02.58.png" width=500/>
 
