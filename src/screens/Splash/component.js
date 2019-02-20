@@ -18,7 +18,7 @@ import {
 const Wrapper = styled.View``
 
 const Space = styled.View`
-  height: 35;
+  height: 25;
 `
 
 console.log('GRAPHQL', getAllReservations)
