@@ -17,7 +17,7 @@
 <H1> Running </H1>
 <b> Clone and Install </b>
 
-* clone this repo ``
-* $ cd App
-* $ npm install
-* $ react-native run-ios
+* clone this repo `https://github.com/sourabhdadapure/RS.git`
+* $ cd RS
+* $ yarn
+* $ yarn start-ios
