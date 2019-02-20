@@ -18,13 +18,20 @@ import {
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer'
 import { graphql } from 'react-apollo'
+import SplashComponent from '../src/screens/Splash/component'
+import { Loading } from '../src/components'
 
 it('renders correctly', () => {
   renderer.create(<App />)
 })
 
-it('should fetch all reservations', async () => {
-  getAllReservations
+//
+
+test('renders correctly', () => {
+  const loadingSplash = renderer.create(<Loading />).toJSON()
+  expect(loadingSplash).toMatchSnapshot()
+  const splash = renderer.create(<SplashComponent />).toJSON()
+  expect(splash).toMatchSnapshot()
 })
 
 const component = renderer.create(
