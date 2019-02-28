@@ -10,6 +10,9 @@ export default class AddReservationContainer extends React.Component {
           this.props.navigation.goBack()
           Alert.alert('Reservation Added Successfully!!!')
         }}
+        onError={() => {
+          Alert.alert('Something went wrong, Please try again later')
+        }}
       />
     )
   }

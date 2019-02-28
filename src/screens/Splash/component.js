@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Text, Alert, ScrollView } from 'react-native'
-import styled from 'styled-components'
+import styled from 'styled-components/native'
 
 import {
   AddReservationButton,
@@ -20,8 +20,6 @@ const Wrapper = styled.View``
 const Space = styled.View`
   height: 25;
 `
-
-console.log('GRAPHQL', getAllReservations)
 
 const SplashComponent = graphql(getAllReservations, deleteReservation)(
   props => {
